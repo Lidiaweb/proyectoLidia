@@ -1,0 +1,874 @@
+
+/*
+COLORES
+
+dorado_fuente: #917236; (145, 114, 54)
+negro: #151515; (21, 21, 21)
+blanco: #E5E5E5; (229, 229, 229)
+
+
+FUENTES
+logo:  Brodway y Futura PT Light;
+menu: ayerdeck-medium;
+encabezados: roslindale-bold;
+el resto: neuemontreal-regular;
+*/
+
+
+/*///////////////////////// FUENTES //////////////////////////////*/
+
+@font-face {
+    font-family: 'menufont';
+    src: url('../src/font/ayerdeck/AyerDeck-Bold.woff');
+    src: local('../src/font/ayerdeck/AyerDeck-Bold.woff'), local('../src/font/ayerdeck/AyerDeck-Bold.woff'),
+					url('../src/font/ayerdeck/AyerDeck-Bold.woff2') format('woff2'),
+					url('../src/font/ayerdeck/AyerDeck-Bold.woff') format('woff'),
+					url('../src/font/ayerdeck/AyerDeck-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: block;
+}
+  
+@font-face {
+    font-family: 'hfont';
+    src: url('../src/font/roslindale/RoslindaleText-Bold.woff');
+    src: local('../src/font/roslindale/RoslindaleText-Bold.woff'), local('../src/font/roslindale/RoslindaleText-Bold.woff'),
+	        url('../src/font/roslindale/RoslindaleText-Bold.eot?#iefix') format('embedded-opentype'),
+	        url('../src/font/roslindale/RoslindaleText-Bold.woff2') format('woff2'),
+	        url('../src/font/roslindale/RoslindaleText-Bold.woff') format('woff'),
+	        url('../src/font/roslindale/RoslindaleText-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'pfont';
+    src: url('../src/font/neuemontreal/NeueMontreal-Regular.woff');
+    src: local('../src/font/neuemontreal/NeueMontreal-Regular.woff'), local('../src/font/neuemontreal/NeueMontreal-Regular.woff'),
+	        url('../src/font/neuemontreal/NeueMontreal-Regular.eot?#iefix') format('embedded-opentype'),
+	        url('../src/font/neuemontreal/NeueMontreal-Regular.woff2') format('woff2'),
+	        url('../src/font/neuemontreal/NeueMontreal-Regular.woff') format('woff'),
+	        url('../src/font/neuemontreal/NeueMontreal-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+
+/*///////////////////////// VARIABLES ///////////////////////////// */
+
+:root { 
+    --negro:#151515; 
+    --blanco:#E5E5E5;
+    --dorado_fuente: #917236;
+}
+
+
+/*/////////////////////// CSS COMUN ///////////////////////////////*/
+
+* {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	margin: 0;
+	padding: 0;	
+}
+
+.body_container {
+	background-color: var(--negro);
+	scroll-behavior: smooth;
+	font-family: pfont, helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, #caption, label, button {font-family: hfont, georgia, serif}
+
+h6, p, .audio_container h3, input, select {font-family: pfont, helvetica, sans-serif}
+
+.text-trans01 {
+	-webkit-text-stroke: .3px var(--blanco);
+    -webkit-text-fill-color: transparent; 
+}
+
+.text-trans02 {
+	-webkit-text-stroke: 1px var(--negro);
+    -webkit-text-fill-color: transparent; 
+}
+
+
+/*/////////////////////////// HEADER ///////////////////////////////*/
+
+.header01 picture img {
+	width: 100%;
+	height: auto;
+	max-height: 800px;
+	object-fit: contain;
+	object-position: center;	
+}
+
+.logo01 {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	z-index: 5;
+}
+
+.logo02 {display: none}
+
+
+/*////////////// NAV ////////////////*/
+
+.burger, .cruz {
+	font-size: 20px;
+	position: fixed;
+	right: 20px;
+	top: 20px;
+	z-index: 6;
+	cursor:pointer;		
+}
+
+.burger {color: var(--dorado_fuente)}
+
+.cruz, #nav01 a {color: var(--blanco)}
+
+#nav01 {
+	background: rgba(21, 21, 21, 0.8); 
+	width: 100%;  
+	position: fixed;
+	top: 0;
+	text-align: left; 
+	font-size: 65px;
+	line-height: 70px;
+	z-index: 5;
+	padding: 30px 0 30px 30px;
+	font-family: menufont, helvetica, sans-serif;	
+}
+
+#nav01 span {
+	font-size: 18px; 
+	margin-right: 10px;
+}
+
+#nav01 a {
+	text-decoration: none;
+	display: block;
+}
+
+#nav01 a:hover, #nav01 a:focus {
+	-webkit-text-stroke: .4px var(--blanco);
+	-webkit-text-fill-color: transparent;
+}
+
+#nav02, .cruz, #nav01 {display: none}
+
+.fa-arrow-up {
+	font-size: 25px;
+	z-index: 5;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	cursor: pointer;
+	color: var(--dorado_fuente);
+}
+
+
+/*/////////////////////////// MAIN ///////////////////////////////*/
+
+main section {padding: 60px 30px}
+
+main h1 {
+	font-size: 80px;
+	margin-bottom: 60px;
+}
+
+.h1_00 {margin-top: 100px}
+
+.h1_01, .h1_02 {display: none}
+
+main section span:not(.fw-bold,.carousel-control-prev-icon, .carousel-control-next-icon) {color: var(--dorado_fuente)}
+
+#conocenos, #trayectoria, #contacto {
+	background-color: var(--blanco);
+	color: var(--negro);
+}
+
+#componentes, #multimedia {
+	background-color: var(--negro);
+	color: var(--blanco);
+}
+
+
+/*/////////////// SECTION CONÓCENOS /////////////*/
+
+#conocenos .h1_01, #conocenos .h1_02 {display: none}
+
+.imgconocenos_container {
+	background-color: var(--blanco);
+	height: 500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30px;
+}
+
+.imgconocenos_content {
+	max-width: 300px;
+	min-width: 300px;
+	height: 500px;
+	position: relative;
+}
+
+.imgconocenos_content img {
+  border-radius: 2px;
+  box-shadow: 2px 0px 10px #151515;
+  cursor: zoom-in;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9;
+  width: 100%;
+  height: inherit;
+  background-color: rgba(0,0,0,0.9);
+  overflow: hidden;
+}
+
+.modal-content {
+	border: none;
+	margin: auto;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: 450px;
+  object-fit: cover; 
+  object-position: top; 
+}
+
+#caption {
+	border: 1px solid var(--negro);
+	background-color: var(--blanco);
+  margin: auto;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  color: var(--dorado_fuente)!important;
+  padding: 10px 0;
+  height: 50px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: var(--blanco);
+  font-size: 40px;
+  font-weight: normal;
+  transition: 0.3s;
+  z-index: 10;
+}
+
+.close:hover, .close:focus {
+  color: var(--dorado_fuente);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#imgconocenos01 {
+	width: 80%;
+	position: absolute;
+	top: 40px;
+	left: 0px;		
+}
+
+#imgconocenos02 {
+	width: 65%;
+	position: absolute;
+	right: 0px;
+	top: 200px;
+}
+
+#imgconocenos03 {
+	width: 50%;
+	position: absolute;
+	left: 20px;
+	bottom: 40px;
+}
+
+
+/*//////////// SECTION COMPONENTES //////////*/
+
+.componentes_container {position: relative}
+
+.componentes_container img:not(.imgfondo) {
+	width: 60px;
+	height: 60px;
+	object-fit: contain;
+  display: block;
+  margin: 20px auto;
+}
+
+.componentes_content {
+	padding: 20px;
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--blanco);
+}
+
+.imgfondo {
+	width: 100%;
+	min-height: 500px;
+	object-fit: cover;
+}
+
+
+/*/////////////// SECTION TRAYECTORIA ////////////////*/
+
+#trayectoria p {margin-bottom: 60px}
+
+.carousel-control-next, .carousel-control-prev {
+	font-size: 30px;
+	color: #ffffff;
+	opacity: 1;
+}
+
+.carousel-item {
+	max-height: 300px;
+	height: auto;
+	position: relative;
+}
+
+.carousel-caption {
+	width: 100%;
+	position: absolute;
+	padding: 5px 0 0 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.3);
+}
+
+
+/*////////////// SECTION MULTIMEDIA //////////////////*/
+
+#multimedia h2 {
+	font-size: 50px;
+	margin-bottom: 30px;
+}
+
+#multimedia > div:not(.foto_container) {margin-bottom: 60px}
+
+audio {
+	width: 100%;
+	max-width: 500px;
+	display: block;
+	height: 30px;
+	margin-bottom: 20px;
+}
+
+.video_content iframe {
+	width: 100%;
+	height: 170px;
+}
+
+.video_content iframe:not(.iframe04) {margin-bottom: 20px}
+
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.column {
+  -ms-flex: 100%;
+  flex: 100%;
+  max-width: 100%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  width: 100%;
+  height: inherit;
+  object-fit: cover;
+  object-position: top;
+}
+
+
+/*/////////////// SECTION CONTACTO /////////////////*/
+
+#contacto div {margin-top: 30px;}
+
+th, td {
+	font-size: 12px!important;
+	padding: 5px!important;
+}
+
+.fa-trash, .fa-edit {color: var(--blanco);}
+
+.iniciaSesion {
+	font: bold 25px hfont, serif;
+	color: var(--dorado_fuente);
+}
+
+.iniciaSesion:hover, .contacto a {color: var(--negro);}
+
+.contacto a:hover {color: var(--dorado_fuente);}
+
+
+/*/////////////////////////// FOOTER ///////////////////////////////*/
+
+#footer {
+	height: 35px;
+	background-color: var(--dorado_fuente);
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	padding-top: 5px;
+	margin-left: -20px;
+}
+
+#footer a {
+	text-decoration: none;
+	color: var(--negro);
+	padding-left: 20px;
+}
+
+#footer a:hover {color: var(--blanco)}
+
+.contfooter02 {display: none}
+
+.fa-envelope-square, .fa-phone-square, .fa-youtube-square, .fa-facebook-square, .fa-instagram-square, .fa-sign-in-alt {font-size:20px}
+
+.copyright {
+	color: var(--dorado_fuente);
+	text-align: center;
+}
+
+small {font-size: 12px}
+
+
+/*////////////////////////////////////// PHP Y HTML ASOCIADOS CON PHP ////////////////////////////////////////////*/
+
+/*//////////////////// LOGIN.HTML ///////////////*/
+
+.faHomeContainer {margin: 20px;}
+
+.faHomeWhite {
+	color: var(--blanco)!important;
+	font-size: 25px;
+}
+
+.form-check-input:checked {
+	background-color: var(--dorado_fuente);
+	border-color: var(--negro);
+}
+
+.form-check-input:focus {
+   border-color: var(--negro);
+   box-shadow: 0 0 0 0.25rem rgb(21 21 21 / 25%);
+}
+
+
+/*//////////////////// INDEXLOGIN.PHP ///////////////*/
+
+.nav-link, .fa-home, .navbar-toggler {
+	font-family: menufont, helvetica, sans-serif;
+  color: var(--negro);
+  font-size: 25px;
+}
+
+.nav-link:hover, .fa-home:hover, .faHomeWhite:hover, .navbar-toggler:hover {
+	color: var(--dorado_fuente)!important;
+}
+
+.girar, .sectionTable h2 {color: var(--blanco);}
+
+#admin, #user {
+	color: var(--blanco);
+	background-color: #212121;
+	border-radius: 2px;
+	border-radius: 1rem;
+}
+
+#admin img, #user img {
+	width: 100px;
+	border-radius: 50%;
+}
+
+#formOcultoUserUp {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 9;
+}
+
+
+/*////////////////////// EDITUSER.HTML Y EDITEVENT.HTML ////////////////*/
+
+.mainEvent section {
+	padding: 30px;
+	color: var(--blanco);
+}
+
+.girar {text-align: center;}
+
+.oculto, .tablaOculta {display: none;}
+
+#formOcultoSectionEvent, #formOcultoSectionUser {
+	position: absolute;
+	width: 100%;
+	z-index: 9;
+}
+
+
+
+
+/*///////////////////////////////////////////// RESPONSIVE //////////////////////////////////////////////////*/
+
+
+
+/*/////////////////////// SMALL DEVICES (576PX AND UP) /////////////////////////*/
+
+
+@media only screen and (min-width: 576px) {
+
+
+#nav01 {
+	font-size: 50px;
+	line-height: 50px;
+}
+
+#nav01 span {font-size: 15px}
+
+audio {
+	width: 100%;
+	height: 30px;
+}
+
+.video_content iframe {
+	width: 100%;
+	height: 310px;
+}
+
+th, td {font-size: 15px!important;}
+
+.girar {display: none;}
+
+.tablaOculta {display: block;}
+
+
+
+}/*/// FIN DEL SMALL DEVICES ///*/
+
+
+
+
+/*////////////////////// MEDIUM DEVICES (768PX AND UP) ///////////////////////////*/
+
+
+@media only screen and (min-width: 768px) {
+
+
+p, input, select, label {font-size: 18px}
+
+.nav01_container, .logo01 {display: none}
+
+.nav02_container {
+	background: rgba(21, 21, 21, 0.8);
+	position: fixed;
+	top: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 20px;
+	z-index: 8;	
+}
+
+.logo02, #nav02 {display: block}
+
+#nav02 {
+	display: flex; 
+	align-items: center;
+}
+	
+#nav02 a {
+	text-decoration: none;
+	font: 20px menufont, helvetica, sans-serif;
+	padding-left: 30px;
+	color: var(--blanco);
+}
+
+#nav02 a:hover, #nav02 a:focus {
+	-webkit-text-stroke: .4px var(--blanco);
+	-webkit-text-fill-color: transparent;
+}
+
+.active {color: var(--dorado_fuente)!important;}
+
+.fa-arrow-up {display: none}
+
+.main01 section:not(#conocenos) {display: none}
+
+main section {padding: 120px 50px}
+
+.h1_00 {display: none}
+
+.h1_01, .h1_02 {display: block}
+
+.h1_02 {margin: -80px 0 100px 30px}
+
+
+/*//////////// CONÓCENOS //////////////*/
+
+#conocenos h1 {display: none}
+
+#conocenos .h1_01, #conocenos .h1_02 {display:block}
+
+.imgconocenos_content {
+	margin-top: 100px;
+	min-width: 400px;
+	height: 550px;
+}
+
+#imgconocenos01 {top: 0px}
+
+#imgconocenos02 {bottom: 0px}
+
+#imgconocenos03 {bottom: 30px}
+
+
+/*///////////// COMPONENTES //////////*/
+
+.componentes_container img, .componentes_content {
+	background-color: var(--negro);
+	width: 50%;
+	height: 600px;
+	position: static;
+}
+
+.imgfondo {
+	width: 50%;
+	object-fit: cover;
+}
+
+.float_left {float: left}
+
+.float_right {float: right}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+
+/*////////// TRAYECTORIA ////////////*/
+
+.carousel-item {max-height: 400px}
+
+
+/*////////// MULTIMEDIA ////////////*/
+
+.audio_container {margin-bottom: 80px!important;}
+
+.video_content {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.video_content iframe {
+	width: 50%;
+	height: 250px;
+	padding: 5px;
+}
+
+.column {
+	-ms-flex: 50%;
+	flex: 50%;
+	max-width: 50%;
+}
+
+.column span {display: none}
+
+
+/*///////////////// CONTACTO /////////////*/
+
+th, td, h6 {font-size: 20px!important;}
+
+
+/*////////// FOOTER ////////////*/
+
+.contfooter01 {display: none}
+
+.contfooter02 {
+	display: inline;
+	margin-left: -20px;	
+}
+
+
+}/*/// FIN DEL MEDIUM DEVICES ///*/
+
+
+
+
+/*/////////////////////////// LARGE DEVICES (992PX AND UP) //////////////////////////////////*/
+
+
+@media only screen and (min-width: 992px) {
+
+
+#nav02 a {font-size: 25px}
+
+.h1_00, .h1_01, .h1_02 {font-size: 80px}
+
+p, input, select, label {font-size: 20px}
+
+.fw-bold {font-size: 30px}
+
+
+/*//////////// CONOCENOS //////////////*/
+
+#conocenos {padding: 100px}
+
+#conocenos > div {width: 50%}
+
+.conocenos_content {
+	padding: 30px;
+	float: right;
+}
+
+.imgconocenos_container {
+	margin-top: -50px;
+	margin-bottom: 50px;
+	float: left;
+}
+
+#conocenos::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+
+/*///////////// COMPONENTES //////////*/
+
+#componentes {padding: 100px}
+
+
+/*///////////// TRAYECTORIA //////////*/
+
+#trayectoria {padding: 100px}
+
+.carousel-item {max-height: 500px}
+
+
+/*///////////// MULTIMEDIA //////////*/
+
+#multimedia {padding: 100px}
+
+.column {
+	-ms-flex: 25%;
+	flex: 25%;
+	max-width: 25%;
+}
+
+
+/*/////////// FOOTER ///////////*/
+
+#footer {height: 35px}
+
+.fa-envelope-square, .fa-phone-square, .fa-youtube-square, .fa-facebook-square, .fa-instagram-square, .fa-sign-in-alt {font-size:25px}
+
+small{font-size: 13px}
+
+
+}/*/// FIN DEL LARGE DEVICES ///*/
+
+
+
+/*/////////////////////////// EXTRALARGE DEVICES (1200PX AND UP) //////////////////////////////////*/
+
+
+@media only screen and (min-width: 1200px) {
+
+
+#nav02 a {font-size: 30px}
+
+.logo02 {width: 120px}
+
+.h1_00, .h1_01, .h1_02 {font-size: 90px}
+
+#trayectoria > div {
+	background-color: var(--blanco);
+	width: 50%;
+	float: left;
+}
+
+.video_content iframe {
+	width: 25%;
+	max-height: 160px;
+}
+
+
+}/*/// FIN DEL EXTRALARGE DEVICES ///*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+

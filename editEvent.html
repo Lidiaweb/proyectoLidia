@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="author" content="Lidia Gómez">
+	<meta name="copyright" content="Jazz&feel">
+	<meta name="description" content="Jazz&Feel, es un grupo musical dedicado a crear bellos momentos a través de sus interpretaciones. Está formado por voz y piano entre otras posibilidades.">
+	<meta name="keywords" content="jazz, feel, música, directo, bodas, amenizar, Manu, Contreras, Lidia, Gómez">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<link rel="icon" sizes="16x16" type="image/png" href="./src/img/favicon16.png">
+	<link rel="icon" sizes="32x32" type="image/png" href="./src/img/favicon32.png">
+	<link rel="icon" sizes="64x64" type="image/png" href="./src/img/favicon64.png">
+	<link rel="icon" sizes="128x128" type="image/png" href="./src/img/favicon128.png">
+	<link rel="stylesheet" href="./css/all.min.css">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/mdb.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+	<link rel="stylesheet" href="./css/estilos.css">
+	<title>Jazz&Feel</title>	
+</head>
+
+<body class="body_container">
+
+    <!----------------- MENÚ DE NAVEGACIÓN ------------------------>
+	<header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"data-mdb-toggle="collapse"><i class="fas fa-bars"></i></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./indexLogin.php">Panel de control</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./editUsuar.html">Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="./editEvent.html">Eventos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center">
+                    <a class="text-reset me-3" href="./index.html" target="_blank"><i class="fas fa-home"></i></a>                       
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="mainEvent">
+        <!----------------- FORMULARIO PARA INSERTAR EVENTOS ------------------------>
+        <section>
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+                            <div class="mb-md-5 mt-md-4 pb-5">
+                                <h2 class="fw-bold mb-2 text-uppercase">INSERTAR EVENTO</h2><br>
+                                <form class="form formEvent">
+                                    <div class="form-white mb-4">
+                                        <select id="tipo" class="form-select"></select>
+                                        <label class="form-label">Tipo</label>
+                                    </div>
+                                    <div class="form-white mb-4"> 
+                                        <select id="lugar" class="form-select"></select>
+                                        <label class="form-label">Lugar</label>     
+                                    </div>
+                                    <div class="form-white mb-4">
+                                        <input type="date" id="fecha" class="form-control form-control-lg">
+                                        <label class="form-label">Fecha</label>   
+                                    </div>
+                                    <div class="form-white mb-4">
+                                        <input type="time" id="hora" class="form-control form-control-lg">
+                                        <label class="form-label">Hora</label>
+                                    </div>
+                                    <div class="form-white mb-4"> 
+                                        <select  id="nombreUsuario" class="form-select"></select>
+                                        <label class="form-label">Usuario</label>     
+                                    </div>
+                                    <div class="form-white mb-4">
+                                        <select id="estado" class="form-select">
+                                            <option>Confirmado</option>
+                                            <option>Pendiente</option>
+                                        </select> 
+                                        <label class="form-label">ESTADO</label>       
+                                    </div>
+                                    <div class="form-outline form-white d-md-flex justify-content-center">
+                                        <button type="submit" class="btn btn-outline-light px-3">INSERTAR</button>
+                                    </div>   
+                                </form>
+                                <div id="alertEditEvent" class="alert alert-danger oculto alertOculto" role="alert"></div>     
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!----------------- FORMULARIO PARA MODIFICAR EVENTOS (OCULTO DE MANERA PREDETERMINADA) ------------------------>
+        <section class="oculto" id="formOcultoSectionEvent">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+                            <div class="mb-md-5 mt-md-4 pb-5">
+                                <span class="close closeUp">&times;</span>
+                                <h2 class="fw-bold mb-2 text-uppercase">MODIFICAR EVENTO</h2><br>
+                                <form class="form" id="formOcultoEvent">
+                                    <input type="hidden" id="idUp">
+                                    <div class="form-white mb-4">
+                                        <select id="tipoUp"class="form-select"></select> 
+                                        <label class="form-label">Tipo</label>
+                                    </div>
+                                    <div class="form-white mb-4"> 
+                                        <select id="lugarUp" class="form-select"></select>
+                                        <label class="form-label">Lugar</label>     
+                                    </div>
+                                    <div class="form-white mb-4">
+                                        <input type="date" id="fechaUp" class="form-control">
+                                        <label class="form-label">Fecha</label>   
+                                    </div>
+                                    <div class="form-white mb-4">
+                                        <input type="time" id="horaUp" class="form-control">
+                                        <label class="form-label">Hora</label>
+                                    </div>
+                                    <div class="form-white mb-4"> 
+                                        <select id="usuarioUp" class="form-select"></select> 
+                                        <label class="form-label">Usuario</label>     
+                                    </div>
+                                    <div class="form-white mb-4">
+                                        <select id="estadoUp" class="form-select">
+                                            <option>Confirmado</option>
+                                            <option>Pendiente</option>
+                                        </select> 
+                                        <label class="form-label">Estado</label>       
+                                    </div>
+                                    <div class="form-white d-md-flex justify-content-center">
+                                        <button type="submit" class="btn btn-outline-light px-3">MODIFICAR</button>
+                                    </div>   
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </section>
+        <!----------------- TABLA DE EVENTOS (OCULTA EN FORMATO MÓVIL) ------------------------>            
+        <section>
+            <div class="girar">
+                <h2>Gire el dispositivo para ver el contenido</h2>  
+            </div>
+            <div class="tablaOculta">
+                <h2>EVENTOS</h2>
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">TIPO</th>
+                            <th scope="col">LUGAR</th>
+                            <th scope="col">FECHA</th>
+                            <th scope="col">HORA</th>
+                            <th scope="col">USUARIO</th>
+                            <th scope="col">ESTADO</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <!-------------------- TABLA VACIA QUE SE RELLENA CON AJAX --------------------->
+                    <tbody class="eventAdmin">
+                    </tbody>
+                </table>   
+            </div>  
+        </section>                        
+    </main>
+
+<!------ SCRIPTS JS ------------>
+
+<script src="./js/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+<script src="./js/all.min.js"></script>
+<script src="./js/popper.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/mdb.min.js"></script>
+<script src="./js/main.js"></script>
+
+</body>
+</html>
